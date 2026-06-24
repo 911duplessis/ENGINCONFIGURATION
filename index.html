@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrimeTurf — Instant Quote</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Rajdhani:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="engine/theme.css">
+</head>
+<body>
+<div class="pt-wrap">
+
+  <div id="quote-form-view">
+    <div class="pt-header">
+      <div class="pt-eyebrow">PrimeTurf SA</div>
+      <div class="pt-title">Instant Turf Quote</div>
+      <div class="pt-client-fields">
+        <input type="text" id="client-name-input" placeholder="Your name (optional)">
+        <input type="text" id="client-location-input" placeholder="Property location (optional)">
+      </div>
+    </div>
+    <div id="quote-form"></div>
+    <button type="button" id="get-quote-btn" class="pt-btn pt-btn-gold">Get My Quote</button>
+  </div>
+
+  <div id="quote-summary-view" class="hidden">
+    <div class="pt-header">
+      <div class="pt-eyebrow">PrimeTurf SA</div>
+      <div class="pt-title">Your Quote</div>
+    </div>
+    <div id="quote-summary"></div>
+  </div>
+
+</div>
+
+<div id="live-total-bar"></div>
+
+<script src="engine/format.js"></script>
+<script src="engine/state.js"></script>
+<script src="engine/calc.js"></script>
+<script src="engine/form.js"></script>
+<script src="engine/summary.js"></script>
+<script src="engine/exportQuote.js"></script>
+<script src="engine/main.js"></script>
+</body>
+</html>
