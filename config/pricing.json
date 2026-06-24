@@ -1,0 +1,63 @@
+{
+  "currency": "ZAR",
+  "currencySymbol": "R",
+  "vatIncluded": false,
+  "vatRate": 0.15,
+
+  "company": {
+    "name": "PrimeTurf SA",
+    "website": "https://www.primeturf.co.za",
+    "whatsapp": "",
+    "email": "social@primeturf.co.za"
+  },
+
+  "turfSpecs": [
+    {
+      "id": "20mm-indoor-elite",
+      "label": "20mm Indoor Elite",
+      "tierGroup": "indoor",
+      "supplyRatePerSqm": 420,
+      "installRatePerSqm": 380,
+      "recommendedFor": ["VIP lounges", "indoor feature floors"]
+    },
+    {
+      "id": "40mm-outdoor-pro",
+      "label": "40mm Outdoor Pro",
+      "tierGroup": "outdoor",
+      "supplyRatePerSqm": 520,
+      "installRatePerSqm": 420,
+      "recommendedFor": ["terraces", "entrances", "high-traffic outdoor"]
+    },
+    {
+      "id": "15mm-elite-weave",
+      "label": "15mm Elite Weave",
+      "tierGroup": "feature",
+      "supplyRatePerSqm": 480,
+      "installRatePerSqm": 460,
+      "recommendedFor": ["stairs", "small feature areas", "custom cuts"]
+    }
+  ],
+
+  "complexityMultipliers": {
+    "easy":    { "label": "Easy — open, flat, regular shape",            "laborMultiplier": 1.00 },
+    "medium":  { "label": "Medium — slopes, curves, obstacles",          "laborMultiplier": 1.25 },
+    "complex": { "label": "Complex — steps, tight access, custom cuts",  "laborMultiplier": 1.60 }
+  },
+
+  "addons": {
+    "perZone": [
+      { "id": "ground-prep",     "label": "Ground Prep & Levelling",    "unit": "sqm",  "ratePerSqm": 90,  "defaultOn": true },
+      { "id": "weed-barrier",    "label": "Weed Barrier Membrane",      "unit": "sqm",  "ratePerSqm": 35,  "defaultOn": true },
+      { "id": "drainage",        "label": "Drainage Correction",        "unit": "sqm",  "ratePerSqm": 110, "defaultOn": false },
+      { "id": "edging",          "label": "Aluminium Edging Strip",     "unit": "lm",   "ratePerLm": 180,  "defaultOn": false },
+      { "id": "irrigation-cap",  "label": "Irrigation Capping/Removal", "unit": "flat", "flatRate": 850,   "defaultOn": false }
+    ],
+    "global": [
+      { "id": "lighting-package", "label": "LED Perimeter Lighting Package", "unit": "lm",   "ratePerLm": 320, "defaultOn": false },
+      { "id": "site-assessment",  "label": "On-Site Assessment Visit",       "unit": "flat", "flatRate": 0,    "defaultOn": true, "note": "Free, no obligation" }
+    ]
+  },
+
+  "quoteRangeBufferPct": 0.12,
+  "minimumJobValue": 6500
+}
