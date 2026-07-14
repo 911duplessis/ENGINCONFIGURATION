@@ -110,10 +110,37 @@ label { display: block; font-size: 11px; color: var(--pt-muted); margin-bottom: 
 
 .summary-actions { margin-top: 24px; }
 
+.summary-print-footer { display: none; }
+
+/* Print → a clean, branded, light quote document. Only the summary view is
+   visible when printing (the form view carries .hidden), so we restyle its
+   elements for paper instead of forcing colours that vanish on white. */
 @media print {
-  #live-total-bar, .pt-header, .zone-list, #get-quote-btn, .global-addons, .summary-actions { display: none !important; }
-  body { background: white; color: black; }
-  .breakdown-zone { border-color: #ccc; }
+  @page { margin: 16mm; }
+  body { background: #fff; color: #12241b; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .pt-wrap { max-width: 100%; padding: 0; }
+  #live-total-bar, .summary-actions { display: none !important; }
+
+  .pt-header { border-bottom: 2px solid var(--pt-gold); padding: 0 0 14px; margin-bottom: 8px; }
+  .pt-eyebrow { color: var(--pt-gold-lo); }
+  .pt-title { color: #12241b; }
+
+  .summary-total { border-bottom: 1px solid #ddd; padding: 16px 0; }
+  .summary-total-label { color: var(--pt-gold-lo); }
+  .summary-total-value { color: #12241b; }
+  .summary-total-sub, .summary-vat-note { color: #555; }
+
+  .breakdown-zone { background: #fff !important; border: 1px solid #cfcfcf; break-inside: avoid; page-break-inside: avoid; }
+  .breakdown-zone-name { color: #12241b; }
+  .breakdown-zone-meta { color: #666; }
+  .breakdown-line { color: #222; }
+  .breakdown-line-addon { color: #666; }
+  .breakdown-line-subtotal { color: var(--pt-gold-lo); border-top-color: #cfcfcf; }
+
+  .summary-print-footer { display: block; margin-top: 20px; padding-top: 12px; border-top: 1px solid #ddd; text-align: center; }
+  .spf-brand { font-family: 'Cinzel', serif; font-size: 14px; color: #12241b; }
+  .spf-contact { font-size: 11px; color: #444; margin-top: 3px; }
+  .spf-note { font-size: 10px; color: #777; margin-top: 6px; font-style: italic; }
 }
 
 @media (min-width: 600px) {

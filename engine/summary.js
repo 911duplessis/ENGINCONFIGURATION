@@ -78,6 +78,11 @@ function renderSummary(quoteResult, pricingConfig) {
       <button type="button" class="pt-btn pt-btn-primary" data-action="export-whatsapp">Send via WhatsApp</button>
       <button type="button" class="pt-btn pt-btn-outline" data-action="export-json">Export JSON</button>
     </div>
+    <div class="summary-print-footer">
+      <div class="spf-brand">${escapeHtml(pricingConfig.company.name)}</div>
+      <div class="spf-contact">${escapeHtml(pricingConfig.company.website)}${pricingConfig.company.whatsapp ? ` · WhatsApp +${escapeHtml(pricingConfig.company.whatsapp)}` : ''}${pricingConfig.company.email ? ` · ${escapeHtml(pricingConfig.company.email)}` : ''}</div>
+      <div class="spf-note">Quote generated ${new Date().toLocaleDateString('en-ZA')} — estimate only, subject to a final on-site assessment.</div>
+    </div>
   `;
 }
 
