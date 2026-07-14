@@ -22,15 +22,6 @@ async function init() {
       clientName: document.getElementById('client-name-input').value,
       location: document.getElementById('client-location-input').value
     };
-    if (window.ptTrack) {
-      const midpoint = Math.round(((lastResult.grandTotalLow + lastResult.grandTotalHigh) / 2) / 10) * 10;
-      ptTrack('get_quote', {
-        currency: 'ZAR',
-        value: midpoint,
-        total_sqm: Math.round(lastResult.totalSqm),
-        zones: lastResult.zones.length
-      });
-    }
     showSummaryScreen(lastResult, pricingConfig, {
       onExportPdf: () => exportToPdf(),
       onExportWhatsApp: () => exportToWhatsApp(lastResult, pricingConfig, meta),
