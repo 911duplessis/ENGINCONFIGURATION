@@ -1,11 +1,6 @@
 /* Export actions: print/PDF, WhatsApp share, and Kopano--compatible JSON. */
 
-function quoteMidpoint(quoteResult) {
-  return Math.round(((quoteResult.grandTotalLow + quoteResult.grandTotalHigh) / 2) / 10) * 10;
-}
-
 function exportToPdf() {
-  if (window.ptTrack) ptTrack('download_pdf', {});
   window.print();
 }
 
@@ -28,8 +23,6 @@ function exportToWhatsApp(quoteResult, pricingConfig, meta) {
   const text = buildWhatsAppMessage(quoteResult, pricingConfig, meta);
   const number = (pricingConfig.company.whatsapp || '').replace(/\D/g, '');
   const base = number ? `https://wa.me/${number}` : 'https://wa.me/';
-  // GA4 recommended conversion event — WhatsApp send is the actual lead.
-  if (window.ptTrack) ptTrack('generate_lead', { method: 'whatsapp', currency: 'ZAR', value: quoteMidpoint(quoteResult) });
   window.open(`${base}?text=${encodeURIComponent(text)}`, '_blank');
 }
 
@@ -70,7 +63,6 @@ function toQuoteJSON(quoteResult, pricingConfig, meta) {
 }
 
 function exportToJson(quoteResult, pricingConfig, meta) {
-  if (window.ptTrack) ptTrack('export_quote_json', { value: quoteMidpoint(quoteResult) });
   const data = toQuoteJSON(quoteResult, pricingConfig, meta);
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
